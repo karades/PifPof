@@ -6,17 +6,23 @@ using UnityEngine;
 public class GUI : MonoBehaviour
 {
 
-    TextMeshProUGUI Level;
+    TextMeshProUGUI level;
+    TextMeshProUGUI currentWeapon;
+
     public GameObject LevelControl;
+    public GameObject WeaponSwitcher;
     // Start is called before the first frame update
     void Start()
     {
-        Level = GameObject.Find("Level").GetComponent<TMPro.TextMeshProUGUI>();
+        level = GameObject.Find("Level").GetComponent<TMPro.TextMeshProUGUI>();
+        currentWeapon = GameObject.Find("Weapon").GetComponent<TMPro.TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Level.text = "Level " + LevelControl.GetComponent<LevelControl>().getLevel();
+        level.text = "Level " + LevelControl.GetComponent<LevelControl>().getLevel();
+        currentWeapon.text = WeaponSwitcher.GetComponent<WeaponSwitcher>().currentWeapon;
+
     }
 }

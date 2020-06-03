@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponSwitcher : MonoBehaviour
 {
     public int selectedWeapon = 0;
+    public string currentWeapon;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +29,7 @@ public class WeaponSwitcher : MonoBehaviour
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
-            if (selectedWeapon <= 0)
+            if (selectedWeapon <= 1)
             {
                 selectedWeapon = transform.childCount;
             }
@@ -41,6 +42,7 @@ public class WeaponSwitcher : MonoBehaviour
         {
             SelectWeapon();
         }
+        
     }
     void SelectWeapon()
     {
@@ -51,6 +53,7 @@ public class WeaponSwitcher : MonoBehaviour
             if (i == selectedWeapon)
             {
                 Debug.Log(weapon);
+                currentWeapon = weapon.name;
                 weapon.gameObject.SetActive(true);
             }
             else
