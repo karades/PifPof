@@ -6,6 +6,8 @@ public class WeaponSwitcher : MonoBehaviour
 {
     public int selectedWeapon = 0;
     public string currentWeapon;
+
+    public WeaponStats weaponStats;
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +57,8 @@ public class WeaponSwitcher : MonoBehaviour
                 Debug.Log(weapon);
                 currentWeapon = weapon.name;
                 weapon.gameObject.SetActive(true);
+                weaponStats.currentGun = i ; //set cases in weaponStats
+                //weaponStats.setCurrentAmmo(i+1);  
             }
             else
             {

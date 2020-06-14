@@ -6,13 +6,16 @@ public class GrenadeThrower : MonoBehaviour
 {
     public float throwForce = 40;
     public GameObject Grenade;
-
+    public WeaponStats weaponStats;
     // Update is called once per frame
     void Update()
     {
-      if(Input.GetMouseButtonDown(0))
+        if (weaponStats.grenadeAmmo > 0)
         {
-            ThrowGrenade();
+            if (Input.GetMouseButtonDown(0))
+            {
+                ThrowGrenade();
+            }
         }
     }
     void ThrowGrenade()
@@ -20,5 +23,6 @@ public class GrenadeThrower : MonoBehaviour
         GameObject gr = Instantiate(Grenade, transform.position, transform.rotation);
         Rigidbody rb = gr.GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * throwForce,ForceMode.VelocityChange);
+        weaponStats.grenadeAmmo--;
     }
 }

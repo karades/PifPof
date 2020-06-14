@@ -12,8 +12,8 @@ public class MachineGun : MonoBehaviour
     public Transform firingPoint;
 
     public Rigidbody projectilePrefab;
+    public WeaponStats WeaponStats;
     [SerializeField]
-    float firingSpeed = 0.1f;
 
     private float lastTimeShot = 0.0f;
     public static MachineGun Instance;
@@ -26,15 +26,17 @@ public class MachineGun : MonoBehaviour
 
     private void Update()
     {
-
-        if (Input.GetButton("Fire1"))
+        if (WeaponStats.machineGunAmmo > 0)
         {
-            shoot();
+            if (Input.GetButton("Fire1"))
+            {
+                shoot();
+            }
         }
     }
     public void shoot()
     {
-        if (lastTimeShot + firingSpeed <= Time.time)
+        if (lastTimeShot + WeaponStats.machineGunFiringSpeed <= Time.time)
         {
             machineGun.PlayOneShot(machineGunShot);
             StartCoroutine("waitMachineShell");
@@ -44,6 +46,7 @@ public class MachineGun : MonoBehaviour
             Rigidbody instantiatedProjectile = Instantiate(projectilePrefab, firingPoint.position, firingPoint.rotation) as Rigidbody;
 
             Destroy(instantiatedProjectile, 2);
+            WeaponStats.machineGunAmmo--;
         }
     }
     private IEnumerator waitMachineShell()

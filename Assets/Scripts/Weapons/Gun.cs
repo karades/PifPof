@@ -10,7 +10,7 @@ public class Gun : MonoBehaviour
     public AudioClip bulletShell;
     public AudioSource gun;
     public AudioSource bullet;
-    [SerializeField]
+
     public Transform firingPoint;
 
     public Rigidbody projectilePrefab;
@@ -26,12 +26,13 @@ public class Gun : MonoBehaviour
     }
     private void Update()
     {
-
-        if (Input.GetButton("Fire1"))
+        if (WeaponStats.gunAmmo > 0)
         {
+            if (Input.GetButton("Fire1"))
             {
-                shoot();
                 
+                shoot();
+      
             }
         }
     }

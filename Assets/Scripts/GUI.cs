@@ -26,7 +26,7 @@ public class GUI : MonoBehaviour
     {
         level.text = "Level " + LevelControl.GetComponent<LevelControl>().getLevel();
         currentWeapon.text = WeaponSwitcher.GetComponent<WeaponSwitcher>().currentWeapon;
-        ammo.text = "Ammo: " + WeaponStats.gunAmmo;
+        ammo.text = "Ammo: " + WeaponStats.currentAmmo;
 
     }
 }

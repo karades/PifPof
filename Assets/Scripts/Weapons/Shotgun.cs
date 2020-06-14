@@ -10,28 +10,29 @@ public class Shotgun : MonoBehaviour
     public Transform firingPoint;
 
     public Rigidbody projectilePrefab;
-    [SerializeField]
-    float firingSpeed = 0.2f;
-
+    
     private float lastTimeShot = 0.0f;
-    public static Shotgun Instance;
+
+    public WeaponStats weaponStats;
     // Start is called before the first frame update
     void Awake()
     {
-        Instance = GetComponent<Shotgun>();
+
 
     }
     private void Update()
     {
-
-        if (Input.GetButton("Fire1"))
+        if (weaponStats.shotgunAmmo > 0)
         {
-            shoot();
+            if (Input.GetButton("Fire1"))
+            {
+                shoot();
+            }
         }
     }
     public void shoot()
     {
-        if (lastTimeShot + firingSpeed <= Time.time)
+        if (lastTimeShot + weaponStats.shotgunFiringSpeed <= Time.time)
         {
             shotgun.PlayOneShot(shotGunShot);
 
@@ -41,7 +42,9 @@ public class Shotgun : MonoBehaviour
             { 
                 Rigidbody instantiatedProjectile = Instantiate(projectilePrefab, firingPoint.position-new Vector3(0,0,t), firingPoint.rotation*Quaternion.Euler(0,t*300,0)) as Rigidbody;
                 Destroy(instantiatedProjectile, 2);
+                
             }
+            weaponStats.shotgunAmmo--;
            
         }
     }
