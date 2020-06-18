@@ -24,10 +24,7 @@ public class WeaponStats : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gunAmmo = maxGunAmmo;
-        machineGunAmmo = maxMachineGunAmmo;
-        shotgunAmmo = maxShotgunAmmo;
-        grenadeAmmo = maxGrenadeAmmo;
+        refreshAmmo();
     }
 
     // Update is called once per frame
@@ -55,5 +52,12 @@ public class WeaponStats : MonoBehaviour
                 break;
         }
 
+    }
+    public void refreshAmmo()
+    {
+        gunAmmo = maxGunAmmo;
+        machineGunAmmo = maxMachineGunAmmo;
+        shotgunAmmo = maxShotgunAmmo;
+        grenadeAmmo = maxGrenadeAmmo;
     }
 }

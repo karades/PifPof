@@ -651,6 +651,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedWeapon: 1
   currentWeapon: 
+  weaponStats: {fileID: 284064284}
 --- !u!1 &135996123 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: afa7b64ecb6b8ea458dfea467ecbc2a6,
@@ -983,9 +984,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce455bd9c3cfa4e4784b4ea12782d5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentAmmo: 0
+  currentGun: 0
   gunAmmo: 0
   maxGunAmmo: 30
   gunFiringSpeed: 0.5
+  machineGunAmmo: 0
+  maxMachineGunAmmo: 30
+  machineGunFiringSpeed: 0.1
+  shotgunAmmo: 0
+  maxShotgunAmmo: 30
+  shotgunFiringSpeed: 0.2
+  grenadeAmmo: 0
+  maxGrenadeAmmo: 5
 --- !u!4 &284064285
 Transform:
   m_ObjectHideFlags: 0
@@ -2613,6 +2624,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   throwForce: 10
   Grenade: {fileID: 1576472131784665328, guid: 4eb302c046c9e1841ad5ba5e5a344841, type: 3}
+  weaponStats: {fileID: 284064284}
 --- !u!1 &889823383 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: f1b3b27c80aa8f941a8d3e8d243f2929,
@@ -2642,7 +2654,7 @@ MonoBehaviour:
   firingPoint: {fileID: 723682538}
   projectilePrefab: {fileID: 54090303309149688, guid: 5a9b9aeba450b184cbe1e5e73d587c34,
     type: 3}
-  firingSpeed: 0.2
+  weaponStats: {fileID: 284064284}
 --- !u!82 &889823386
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3444,6 +3456,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 127399924}
     m_Modifications:
+    - target: {fileID: 7674697679727540738, guid: 5871527bdf05e04499f1f76cbf70034d,
+        type: 3}
+      propertyPath: WeaponStats
+      value: 
+      objectReference: {fileID: 284064284}
     - target: {fileID: 7674697679727540750, guid: 5871527bdf05e04499f1f76cbf70034d,
         type: 3}
       propertyPath: m_LocalPosition.x
