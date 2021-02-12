@@ -11,10 +11,12 @@ public class BasicEnemy : MonoBehaviour
     public HealthBar healthBar;
     private NavMeshAgent Enemy;
     public GameObject spawn;
+    LevelControl LevelControl;
 
     void Start()
     {
         spawn = GameObject.FindGameObjectWithTag("Spawner");
+        LevelControl = spawn.GetComponent<LevelControl>();
         Enemy = GetComponent<NavMeshAgent>();
         currentHealth= maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -27,6 +29,8 @@ public class BasicEnemy : MonoBehaviour
         {
             Destroy(gameObject);
             spawn.GetComponent<SpawnEnemy>().SendMessage("addDestroyed");
+            LevelControl.SendMessage("addCombo");
+
         }
     }
 
