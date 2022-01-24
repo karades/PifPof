@@ -1037,6 +1037,7 @@ GameObject:
   m_Component:
   - component: {fileID: 284064285}
   - component: {fileID: 284064284}
+  - component: {fileID: 284064286}
   m_Layer: 0
   m_Name: WeaponStats
   m_TagString: Untagged
@@ -1061,14 +1062,19 @@ MonoBehaviour:
   gunAmmo: 0
   maxGunAmmo: 30
   gunFiringSpeed: 0.5
+  gunUnlocked: 1
+  gunDamage: 1
   machineGunAmmo: 0
   maxMachineGunAmmo: 30
   machineGunFiringSpeed: 0.1
+  machineGunUnlocked: 0
   shotgunAmmo: 0
   maxShotgunAmmo: 30
   shotgunFiringSpeed: 0.2
+  shotgunUnlocked: 0
   grenadeAmmo: 0
   maxGrenadeAmmo: 5
+  grenadeUnlocked: 0
 --- !u!4 &284064285
 Transform:
   m_ObjectHideFlags: 0
@@ -1083,6 +1089,20 @@ Transform:
   m_Father: {fileID: 429665761}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &284064286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 284064283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5ac576acf88c149ac34dc765261bda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponStats: {fileID: 284064284}
+  levelControl: {fileID: 807744384}
 --- !u!1 &301610948 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100002, guid: afa7b64ecb6b8ea458dfea467ecbc2a6,
@@ -2568,6 +2588,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5087358352109977449}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &807744384 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5087358352669406209, guid: 13c30afb1f26402489d334c1b95b07af,
+    type: 3}
+  m_PrefabInstance: {fileID: 5087358352109977449}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807744383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba75281accbc474418c41660e6fa9595, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &808754839
 GameObject:
   m_ObjectHideFlags: 0
@@ -2763,6 +2795,8 @@ MonoBehaviour:
   projectilePrefab: {fileID: 54090303309149688, guid: 5a9b9aeba450b184cbe1e5e73d587c34,
     type: 3}
   weaponStats: {fileID: 284064284}
+  BulletsShot: 3
+  BulletsSpread: 30
 --- !u!82 &889823386
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7401,6 +7435,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5087358352669406209, guid: 13c30afb1f26402489d334c1b95b07af,
+        type: 3}
+      propertyPath: weaponStats
+      value: 
+      objectReference: {fileID: 284064284}
     - target: {fileID: 5087358352669406221, guid: 13c30afb1f26402489d334c1b95b07af,
         type: 3}
       propertyPath: m_Name

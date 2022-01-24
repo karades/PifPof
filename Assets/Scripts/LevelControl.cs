@@ -9,9 +9,10 @@ public class LevelControl : MonoBehaviour
     public float basicEnemyCount = 6;
     private float basicCount = 6;
     public float levelCount = 1;
-    float comboCount = 1;
+    int comboCount = 1;
     public SpawnEnemy spawnEnemy;
-
+    [SerializeField]
+    WeaponStats weaponStats;
     float comboTimer = 0;
     // Start is called before the first frame update
     void Start()
@@ -70,8 +71,12 @@ public class LevelControl : MonoBehaviour
                 comboCount--;
             }
         }
+        if (comboCount > weaponStats.getMaxCombo())
+        {
+            weaponStats.setMaxCombo(comboCount);
+        }
     }
-    public void addCombo()
+    public void AddCombo()
     {
         comboCount++;
         comboTimer = 0;

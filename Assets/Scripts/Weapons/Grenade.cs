@@ -42,6 +42,7 @@ public class Grenade : MonoBehaviour
             if (enemy != null)
             {
                 enemy.TakeDamage(50);
+
             }
             EnemyFollow enemy2 = nearbyObject.GetComponent<EnemyFollow>();
             if(enemy2 != null)

@@ -11,6 +11,7 @@ public class BasicEnemy : MonoBehaviour
     public HealthBar healthBar;
     private NavMeshAgent Enemy;
     public GameObject spawn;
+    [SerializeField]
     LevelControl LevelControl;
 
     void Start()
@@ -29,7 +30,7 @@ public class BasicEnemy : MonoBehaviour
         {
             Destroy(gameObject);
             spawn.GetComponent<SpawnEnemy>().SendMessage("addDestroyed");
-            LevelControl.SendMessage("addCombo");
+            LevelControl.SendMessage("AddCombo");
 
         }
     }
